@@ -33,18 +33,20 @@ main(int argc, char *argv[]) {
 	FILE *in;
 	char line[LINEM];
 	int lineindex = 0; // 1-indexed
-	int lp;
-	int sp;
+	int lp; // points to a place in a Line
+	char pc; // last-Printed character
+	int sp; // points to a place in an arg String
 	int occurrences = 0;
 	FILE *out;
 
-	if(argc == 1) { usage(argv[0]); return 0; }
+	if(argc < 2) { usage(argv[0]); return 0; }
 
 	in = stdin; // could add [FILE] to the args but it doesn't seem useful
 	out = stdout;
 
 	while(fgets(line, LINEM, in)) {
 		++lineindex;
+		pc = 0;
 		if((strlen(line) == LINEM-1) && (line[LINEM-1] != '\n'))
 			fprintf(
 				stderr,
@@ -57,11 +59,13 @@ main(int argc, char *argv[]) {
 			if(sp == strlen(argv[1])) {
 				occurrences += 1;
 				lp += sp - 1;
-			} else if(argc == 3 && occurrences == atoi(argv[2]))
+			} else if(argc > 2 && occurrences == atoi(argv[2])) {
+				pc = line[lp];
 				fprintf(out, "%c", line[lp]);
+			}
 		}
-		if(argc == 2) fprintf(out, "%d\n", occurrences);
-		else if(occurrences == 0) fprintf(out, "\n");
+		if(argc < 3) fprintf(out, "%d\n", occurrences);
+		else if(pc != '\n') fprintf(out, "\n");
 	}
 
 	if(in != stdin) fclose(in);
