@@ -1,0 +1,29 @@
+.TH ASPLIT 1
+.SH NAME
+.B asplit
+- splits lines by ASCII string
+
+.SH SYNOPSIS
+.B asplit
+.I STRING
+[
+.I SELECTION
+]
+.SH DESCRIPTION
+.PP
+Prints the span of text between and excluding occurrences SELECTION-1 and SELECTION of STRING in each line from standard input.
+.PP
+With no SELECTION, prints the amount of times STRING occurs in each line from standard input.
+
+.SH DIAGNOSTICS
+.I asplit
+always returns 0. If no arguments are received the program usage will be printed. Extra arguments will be ignored.
+
+
+.SH SEE ALSO
+
+.IR awk (1)
+(to which
+.I asplit
+is likely redundant),
+.IR sed (1)
