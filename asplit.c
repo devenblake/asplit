@@ -19,6 +19,7 @@ usage(char *argv0) {
     line of text. If there is no specified SELECTION, outputs the amount of\n\
     times STRING occurs in each line of text.\n\
 ");
+	return;
 }
 
 int
