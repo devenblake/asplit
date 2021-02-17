@@ -46,20 +46,16 @@ main(int argc, char *argv[]) {
 			continue;
 		++lineindex;
 		pc = 0;
+		occurrences = 0;
 		overflow = OFLOW(line);
 		if(overflow)
-			fprintf(
-				stderr,
-				"%s:%s:%d: Maximum line length possibly exceeded\n",
-				argv[0], "<stdin>", lineindex
-			);
-		occurrences = 0;
+			fprintf(stderr, "%s:%s:%d: Maximum line length possibly exceeded\n", argv[0], "<stdin>", lineindex);
 		for(lp = 0; lp < strlen(line); lp++) {
 			/* checks to see if the string at the point == argv[1]
 			 * if (sp == strlen(argv[1])) after the loop, it does */
 			for(sp = 0; (line[lp+sp] == *(argv[1]+sp)) && (line[lp+sp] != '\0') && (*(argv[1]+sp) != '\0'); sp++);
 			if(sp == strlen(argv[1])) {
-				occurrences += 1;
+				++occurrences;
 				lp += sp - 1;
 			} else if(argc > 2 && occurrences == atoi(argv[2])) {
 				pc = line[lp];
