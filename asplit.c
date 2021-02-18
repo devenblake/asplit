@@ -54,7 +54,7 @@ main(int argc, char *argv[]) {
 		for(lp = 0; lp < strlen(line); lp++) {
 			/* checks to see if the string at the point == argv[1]
 			 * if (sp == strlen(argv[1])) after the loop, it does */
-			for(sp = 0; (line[lp+sp] == *(argv[1]+sp)) && (line[lp+sp] != '\0') && (*(argv[1]+sp) != '\0'); sp++);
+			for(sp = 0; line[lp+sp] == *(argv[1]+sp) && line[lp+sp] != '\0' && *(argv[1]+sp) != '\0'; sp++);
 			if(sp == strlen(argv[1])) {
 				++occurrences;
 				lp += sp - 1;
