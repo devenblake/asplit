@@ -32,5 +32,3 @@ asplit compiles to around 16K with gcc 10.2.0. tcc compiles it to around 5.4K.
 This happens when lines received exceed `LINEM`-1 characters, `LINEM` being a constant defined near the start of the program.
 
 You're welcome to change `LINEM` to a higher value (by default it's 1024) however this may cause asplit to use more memory.
-When the maximum line length is exceeded asplit will still operate on the first `LINEM`-1 characters presented so most of the time there probably won't be any issue.
-
