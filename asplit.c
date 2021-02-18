@@ -4,8 +4,11 @@
 
 #define LINEM 1024
 
+/* should be used carefully */
+#define ARRAYLEN(a) (sizeof(a)/sizeof(*a))
+
 /* returns bool, if true the line var is shorter than the actual input */
-#define OFLOW(line) ((strlen(line) == LINEM-1) && (line[LINEM-1] != '\n'))
+#define OFLOW(line) (strlen(line) == ARRAYLEN(line)-1 && line[ARRAYLEN(line)-1] != '\n')
 
 /* asplit written by deven blake 2021; licensed under the public domain
  * where applicable and the UNLICENSE where not applicable */
@@ -39,7 +42,7 @@ main(int argc, char *argv[]) {
 	in = stdin;
 	out = stdout;
 
-	while(fgets(line, LINEM, in)) {
+	while(fgets(line, ARRAYLEN(line), in)) {
 		if(overflow && OFLOW(line) == 0) {
 			overflow = 0;
 			continue;
