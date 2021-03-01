@@ -10,9 +10,6 @@
 /* returns bool, if true the line var is shorter than the actual input */
 #define OFLOW(line) (strlen(line) == ARRAYLEN(line)-1 && line[ARRAYLEN(line)-1] != '\n')
 
-/* asplit written by deven blake 2021; licensed under the public domain
- * where applicable and the UNLICENSE where not applicable */
-
 void
 usage(char *argv0) {
 	printf("Usage: %s [STRING] [SELECTION]\n", argv0);
