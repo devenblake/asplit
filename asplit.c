@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define LINEM 1024
+#define LINEM 1024+1
 
 /* should be used carefully */
 #define ARRAYLEN(a) (sizeof(a)/sizeof(*a))
