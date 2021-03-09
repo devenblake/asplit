@@ -2,8 +2,8 @@ include config.mk
 
 all: asplit
 
-asplit:
-	${CC} -o $@ ${SRC}
+%:
+	${CC} -o $* $*.c
 
 clean:
 	${RM} asplit
