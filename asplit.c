@@ -51,10 +51,8 @@ main(int argc, char *argv[]){
 			}
 			continue;
 		}
-		if(offset > 0)
-			offset = 0;
+		offset = 0;
 		++li;
-		pc = 0;
 		occurrences = 0;
 		for(lp = 0; lp < strlen(line); lp++){
 			/* checks to see if the string at the point == argv[1]
