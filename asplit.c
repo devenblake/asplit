@@ -74,5 +74,6 @@ main(int argc, char *argv[]){
 
 	if(in != stdin)
 		fclose(in);
+	free(line);
 	return 0;
 }
