@@ -1,18 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "arraylen.h"
 
 #define LINEM 1024+1
 
-/* should be used carefully */
-#define ARRAYLEN(a) (sizeof(a)/sizeof(*a))
-
-/* returns bool, if true the line var is shorter than the actual input */
-#define OFLOW(line) (strlen(line) == ARRAYLEN(line)-1 && line[ARRAYLEN(line)-1] != '\n')
+#define OFLOW(STR) (strlen(STR) == ARRAYLEN(STR)-1 && STR[ARRAYLEN(STR)-1] != '\n')
 
 void
-usage(char *argv0){
-	printf("Usage: %s [STRING] [SELECTION]\n", argv0);
+usage(char *name){
+	printf("Usage: %s [STRING] [SELECTION]\n", name);
 	printf("\
     Splits ASCII lines from STDIN by STRING and outputs the span of text \n\
     between the SELECTION-1th and SELECTIONth occurrence of STRING in each \n\
