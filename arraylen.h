@@ -1,1 +1,1 @@
-#define ARRAYLEN(a) (sizeof(a)/sizeof(*a))
+#define ARRAYLEN(A) (sizeof(A)/sizeof(*A))
