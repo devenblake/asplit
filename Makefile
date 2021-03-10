@@ -6,7 +6,7 @@ all: asplit
 	${CC} -o $* $*.c
 
 clean:
-	${RM} asplit
+	${RM} a.out asplit
 
 install: all
 	mkdir -p ${DESTDIR}${PREFIX}/bin
