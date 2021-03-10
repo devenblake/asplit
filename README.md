@@ -6,7 +6,7 @@ The current upstream URL for this program is https://github.com/devenblake/aspli
 
 **Manual page corrections and additions are very welcome, I'm new to writing them.**
 
-This program is very likely redundant to awk(1).
+This program is very likely redundant to other utilities.
 I didn't make it to accomplish a new task, rather, to accomplish the task quickly in a way that was easy for me.
 
 Consult the manpage and the code for specifics on how it works.
@@ -25,10 +25,16 @@ It's less than a hundred lines of mostly readable C.
 
 `cc asplit.c -o asplit`
 
-asplit compiles to around 16K with gcc 10.2.0. tcc compiles it to around 5.4K.
+Alternatively (if you have a `make` utility installed)
 
-## "Maximum line length possibly exceeded"
+`make`
 
-This happens when lines received exceed `LINEM`-1 characters, `LINEM` being a constant defined near the start of the program.
+And to install asplit system-wide
 
-You're welcome to change `LINEM` to a higher value (by default it's 1024) however this may cause asplit to use more memory.
+`make install`
+
+## "Couldn't re-allocate memory"
+
+The file fed into asplit was for some reason too big.
+This file would have megabytes of text without a newline.
+If your computer has plenty of memory and your text file isn't so big please file a bug so I can check it out.
