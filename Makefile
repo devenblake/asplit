@@ -1,13 +1,5 @@
 include config.mk
 
-all: asplit
-
-%:
-	${CC} -o $* $*.c
-
-clean:
-	${RM} a.out asplit
-
 install: all
 	mkdir -p ${DESTDIR}${PREFIX}/bin
 	cp -f asplit ${DESTDIR}${PREFIX}/bin

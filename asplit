@@ -1,0 +1,19 @@
+#!/bin/sh
+
+usage() {
+	printf "Usage: $0 [STRING] [SELECTION\n"
+	exit 1
+}
+
+[ -z "$1" ] && usage
+
+if [ -z "$2" ]; then
+	cat - | awk -F "$1" '{print NF}'
+	exit $?
+fi
+
+selection=0
+
+stris uint "$2" && selection=$2
+
+cat - | awk -F "$1" "{print \$$(add $selection 1)}"

@@ -1,7 +1,7 @@
 .TH ASPLIT 1
 .SH NAME
 .B asplit
-- splits lines by ASCII string
+- splits lines by string
 .SH SYNOPSIS
 .B asplit
 .I STRING
@@ -15,14 +15,13 @@ With no SELECTION, prints the amount of times STRING occurs in each line.
 .SH BUGS
 If SELECTION isn't a natural number it'll be interpreted as 0.
 .PP
-If a line received exceeds the maximum characters asplit can handle, asplit will only operate on the length it can handle and then discard the rest of the line.
+asplit is a wrapper for awk and is redundant.
 .SH DIAGNOSTICS
-asplit always returns 0. If no arguments are received the program usage will be printed. Extra arguments will be ignored.
+asplit will return 0 only if the program completed a job successfully, and 1 if there were errors or no arguments were given.
 .PP
 When a line is received that exceeds the maximum characters asplit can handle, asplit will print a warning message to standard error.
+.SH HISTORY
+asplit was originally written in C and was not aware of character sets beyond ASCII (though its compatibility was probably fine), hence it was named asplit, for "ASCII split".
+It was later rewritten in POSIX shell and awk.
 .SH SEE ALSO
 .IR awk (1)
-(to which
-.I asplit
-is likely redundant),
-.IR sed (1)
