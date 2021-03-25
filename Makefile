@@ -1,6 +1,6 @@
 include config.mk
 
-install: all
+install: 
 	mkdir -p ${DESTDIR}${PREFIX}/bin
 	cp -f asplit ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/asplit
@@ -12,4 +12,4 @@ uninstall:
 	${RM} ${DESTDIR}${PREFIX}/bin/asplit
 	${RM} ${DESTDIR}${MANPREFIX}/man1/asplit.1
 
-.PHONY: all clean install uninstall
+.PHONY: install uninstall

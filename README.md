@@ -34,9 +34,3 @@ Non-POSIX:
 ### uninstallation
 
 `make uninstall`
-
-## "Couldn't re-allocate memory"
-
-The file fed into asplit was for some reason too big.
-This file would have megabytes of text without a newline.
-If your computer has plenty of memory and your text file isn't so big please file a bug so I can check it out.
