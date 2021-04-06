@@ -4,8 +4,6 @@ Written by Deven Blake; public domain.
 
 The current upstream URL for this program is https://github.com/devenblake/asplit.
 
-**Manual page corrections and additions are very welcome, I'm new to writing them.**
-
 ## usage examples
 
 `echo "foo bar baz" | asplit "bar" 1` returns `baz`. `echo "foo bar baz" | asplit "bar" 0` returns `foo`.
